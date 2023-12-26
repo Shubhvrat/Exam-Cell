@@ -1,6 +1,7 @@
 <?php
-
+ 
 session_start();
+
 require 'connection.php';
 if (!isset($_SESSION['appno'])) {
 
@@ -65,8 +66,8 @@ if(isset($_POST['search']))
 {
   $appno = $_POST['appno'];
   $fname = $_POST['fname'];
-  $text = "Application number ". $appno . "," . "Name " . $fname . "\n";
-  $fp = fopen('data.xlsx' , 'a+');
+  $text = "Application number ". $appno . "," . "Name " . $fname . "Previous University" . $puniv1 . "10th marksheet";
+  $fp = fopen('data.txt' , 'a+');
   
     if(fwrite($fp , $text))
     {
@@ -74,6 +75,8 @@ if(isset($_POST['search']))
     }
 fclose($fp);
 }
+
+
 
 if(isset($_POST['update']))
 {
@@ -94,8 +97,6 @@ if(isset($_POST['update']))
     echo "Error";
   }
 }
-
-
 
 
 
@@ -158,6 +159,7 @@ if(isset($_POST['update']))
       </div>
 </form>
       </div>
+
       <div class="modal-footer">
         
     
@@ -166,7 +168,7 @@ if(isset($_POST['update']))
   </div>
 </div>
 <br><br>
-<button type="button"  class="btn btn-primary mb-4" name="login" data-toggle="modal" data-target="#exampleUpdate">Download Application form</button>
+<button type="button"  class="btn btn-primary mb-4" name="login" data-toggle="modal" data-target="#exampleUpdate">Update Application form</button>
 <button type="button"  class="btn btn-danger mb-4" name="login" data-toggle="modal" data-target="#exampleUpdate1">Delete Application Form</button>
 
 <div class="modal" id="exampleUpdate">
@@ -227,9 +229,17 @@ if(isset($_POST['update']))
     <input type="text" name="phone" id="form6Example6" class="form-control" value='<?php echo $phone1; ?>' required/>
     <label class="form-label" for="form6Example6">Phone</label>
   </div>
+   <label class="form-label" for="customFile" >10th Marksheet</label>
+          <input type="file" class="form-control" id="customFile" name='filetu' id='filetu' required/><br><br><br>
+
+          
+          <label class="form-label" for="customFile">12 marksheet</label>
+          <input type="file" class="form-control" id="customFile" name = 'filetu1' id='filetu1' required/><br><br>
+
+
 
   <!-- Submit button -->
-  <button  class="btn btn-primary btn-block mb-4" name="search" value='search'>Download Application Form</button>
+  <button  class="btn btn-primary btn-block mb-4" name="search" value='search'>Submit Application Form</button>
   <button  class="btn btn-secondary btn-block mb-4" name="update" value='update'>Update Form</button>
 </form>
       </div>
@@ -272,6 +282,29 @@ if(isset($_POST['update']))
   </div>
 </div>
 
+<div class="modal fade" id="appicationForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">MAH-MCA CET Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form action="" METHOD="GET">
+        <textarea class="form-control" id="textAreaExample1" rows="4"></textarea>  
+        
+</form>
+      </div>
+      <div class="modal-footer">
+        
+    
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

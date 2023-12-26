@@ -25,6 +25,12 @@ try{
     throw new CustomException("File Size exceeded");
 
   }
+  else
+  {
+    echo "<script>alert('Successfully Uploaded');</script>";
+    
+
+  }
  
 }
 catch(CustomException $e)
