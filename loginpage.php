@@ -66,7 +66,7 @@ if(isset($_POST['search']))
 {
   $appno = $_POST['appno'];
   $fname = $_POST['fname'];
-  $text = "Application number ". $appno . "," . "Name " . $fname . "Previous University" . $puniv1 . "10th marksheet";
+  $text = " Application number ". $appno . "," . " Name " . $fname .",". " Previous University " . $puniv1;
   $fp = fopen('data.txt' , 'a+');
   
     if(fwrite($fp , $text))
